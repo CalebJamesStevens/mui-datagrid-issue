@@ -2,13 +2,16 @@ import React from 'react';
 
 import { render, screen } from './react-testing-library';
 import { GridColDef } from '@mui/x-data-grid-pro';
-import ServerSideDataGrid from './ServerSideDataGrid';
 import { LicenseInfo } from '@mui/x-data-grid-pro';
 LicenseInfo.setLicenseKey(
-  '37b83db94a4536050ab7b3cc2e79a6a5Tz01NjU3NixFPTE3MDMzNDc4NzI4MjAsUz1wcm8sTE09cGVycGV0dWFsLEtWPTI=',
+  'key',
 );
+import {
+  DataGridPro,
+} from '@mui/x-data-grid-pro';
+import { Box } from '@mui/material';
 
-test('fetchRows is called on sort event', async () => {
+test('it works', async () => {
   const columns: GridColDef[] = [
     {
       headerName: 'Name',
@@ -26,13 +29,13 @@ test('fetchRows is called on sort event', async () => {
   ];
 
   render(
-    <ServerSideDataGrid
-      initialPageSize={1}
-      columns={columns}
-      rows={rows}
-      rowCount={rows.length}
-      pageSizeOptions={[1]}
-    />,
+    <Box width={'1000px'} height={'1000px'}>
+      <DataGridPro
+        autoHeight
+        rows={rows}
+        columns={columns}
+       />
+    </Box>
   );
 
   await screen.findByRole('columnheader');
