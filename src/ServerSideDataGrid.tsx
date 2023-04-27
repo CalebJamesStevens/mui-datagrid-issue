@@ -66,10 +66,7 @@ export const ServerSideDataGrid = ({
       }}
       filterMode='server'
       filterModel={filterModel}
-      onFilterModelChange={(model) => {
-        setPaginationModel((previousPaginationModel) => ({ page: 0, pageSize: previousPaginationModel.pageSize }));
-        setFilterModel(model);
-      }}
+      
       {...otherProps}
     />
   );
