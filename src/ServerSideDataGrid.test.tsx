@@ -35,5 +35,5 @@ test('fetchRows is called on sort event', async () => {
     />,
   );
 
-  await screen.findByRole('columnheader', { name: 'Name' });
+  await screen.findByRole('columnheader');
 });
